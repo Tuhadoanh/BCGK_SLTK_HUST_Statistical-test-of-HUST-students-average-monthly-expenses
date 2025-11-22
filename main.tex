@@ -1,0 +1,152 @@
+\documentclass[oneside,a4paper,13pt]{extreport}
+\usepackage{pdfpages}
+\usepackage[T5]{fontenc}
+\usepackage[utf8]{inputenc}
+\DeclareTextSymbolDefault{\DH}{T1}
+
+% Tài liệu tham khảo
+\usepackage[
+    sorting=nty,
+    backend=bibtex,
+    defernumbers=true]{biblatex}
+\usepackage[unicode]{hyperref} 
+\addbibresource{references.bib} 
+
+\makeatletter
+\def\blx@maxline{77}
+\makeatother
+
+% Chèn hình
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\usepackage{longtable}
+
+% Chèn và định dạng mã nguồn (cho R/Python)
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily, 
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% Chèn và định dạng mã giả 
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+% Bảng biểu 
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{booktabs} 
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Đổi tên 
+\renewcommand{\chaptername}{Chương}
+\renewcommand{\figurename}{Hình}
+\renewcommand{\tablename}{Bảng}
+\renewcommand{\contentsname}{Mục lục}
+\renewcommand{\appendixname}{Phụ lục}
+
+% Định dạng chapter
+\usepackage{titlesec}
+\titleformat{\chapter}
+    [display] 
+    {\normalfont\bfseries\large}{\chaptername \ \thechapter}{10pt}{\huge}
+\titlespacing*{\chapter}{0pt}{-10pt}{20pt} 
+
+\titleformat{\section}
+    {\normalfont\bfseries\large}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+    {\normalfont\bfseries\normalsize}{\thesubsection}{1em}{}
+
+\usepackage{setspace}
+\onehalfspacing
+
+% Thụt lề đoạn
+\usepackage{indentfirst}
+
+% Canh lề 
+\usepackage[
+    top=35mm,
+    bottom=20mm,
+    left=35mm,
+    right=20mm,
+    footskip = 15mm,
+    includefoot]{geometry}
+    
+% Trang bìa
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand\HRule{\rule{\textwidth}{1pt}}
+
+% BẮT ĐẦU TÀI LIỆU
+\begin{document}
+
+% Trang bìa
+\input{Title/title.tex}
+
+% PHẦN ĐẦU TÀI LIỆU
+\pagenumbering{roman} % Đánh số i, ii, iii, ...
+
+\addcontentsline{toc}{chapter}{Lời mở đầu}
+\include{Appendix/opening}
+
+% Mục lục
+\addcontentsline{toc}{chapter}{Mục lục}
+\tableofcontents
+\clearpage
+
+% PHẦN NỘI DUNG CHÍNH
+\pagenumbering{arabic} % Đánh số 1, 2, 3, ...
+
+\include{Chapter1/chapter1}
+
+\include{Chapter2/chapter2}
+
+\include{Chapter3/chapter3}
+
+\include{Chapter4/chapter4}
+
+% TÀI LIỆU THAM KHẢO
+\clearpage
+\addcontentsline{toc}{chapter}{Tài liệu tham khảo}
+\printbibliography[title={Tài liệu tham khảo}]
+
+
+% PHỤ LỤC
+\appendix 
+
+\addcontentsline{toc}{chapter}{Phụ lục}
+
+\include{Appendix/appendix_data}
+
+\include{Appendix/appendix_code}
+
+\end{document}

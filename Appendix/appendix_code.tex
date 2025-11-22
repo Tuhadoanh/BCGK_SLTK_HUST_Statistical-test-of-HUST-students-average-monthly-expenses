@@ -1,0 +1,68 @@
+% !TEX root = ../main.tex
+% =======================================================================
+% NỘI DUNG PHỤ LỤC B: MÃ NGUỒN PHÂN TÍCH
+% =======================================================================
+
+\chapter{Mã nguồn Phân tích (Python)}
+\label{app:Code}
+
+Dưới đây là toàn bộ mã nguồn Python được sử dụng trong Jupyter Notebook để đọc dữ liệu, tính toán các đại lượng thống kê, vẽ biểu đồ và thực hiện kiểm định.
+
+\begin{lstlisting}[language=Python, caption={Mã nguồn Python cho Chương 3}]
+import pandas as pd
+from scipy import stats
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 1. Doc du lieu tu file CSV
+filename = 'khao_sat_chi_tieu.csv'
+df = pd.read_csv(filename)
+
+# 2. Chon cot du lieu 'ChiTieu' de phan tich
+data = df['ChiTieu']
+
+# 3. Tinh cac gia tri thong ke co ban
+n = len(data)
+x_bar = data.mean()
+s = data.std()
+median = data.median()
+print(f"Kich thuoc mau (n): {n}")
+print(f"Trung binh mau (x_bar): {x_bar}")
+print(f"Do lech chuan mau (s): {s}")
+
+# 4. Ve bieu do
+# Histogram
+plt.figure(figsize=(10, 5))
+plt.hist(data, bins=8, edgecolor='black', alpha=0.7)
+plt.title('Histogram Chi tieu hang thang')
+plt.xlabel('Chi tieu (trieu VND)')
+plt.ylabel('Tan suat')
+plt.axvline(x_bar, color='red', linestyle='--', label=f'Trung binh = {x_bar:.2f}')
+plt.legend()
+plt.savefig('images/histogram.png') 
+# Boxplot
+plt.figure(figsize=(8, 4))
+plt.boxplot(data, vert=False, patch_artist=True)
+plt.title('Boxplot Chi tieu hang thang')
+plt.xlabel('Chi tieu (trieu VND)')
+plt.savefig('images/boxplot.png')
+
+# 5. Uoc luong Khoang Tin Cay 95%
+alpha = 0.05
+df = n - 1 # Bac tu do
+ci_low, ci_high = stats.t.interval(confidence=1-alpha, 
+                                 df=df, 
+                                 loc=x_bar, 
+                                 scale=stats.sem(data))
+print(f"KTC 95% cho mu la: ({ci_low}, {ci_high})")
+
+# 6. Kiem dinh Gia thuyet
+mu_0 = 2.0  # Gia thuyet H0
+t_statistic, p_value = stats.ttest_1samp(data, mu_0, alternative='greater')
+print(f"Thong ke T_0: {t_statistic}")
+print(f"P-value (one-tailed): {p_value}")
+if p_value < alpha:
+    print("Ket luan: Bac bo H0.")
+else:
+    print("Ket luan: Khong du bang chung bac bo H0.")
+\end{lstlisting}

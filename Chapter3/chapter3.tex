@@ -1,0 +1,106 @@
+\chapter{PHÂN TÍCH DỮ LIỆU VÀ KẾT QUẢ}
+\label{chap:PhanTich}
+
+\section{Phương pháp thu thập và Mô tả Dữ liệu}
+\label{sec:PhuongPhapThuThap}
+Để thực hiện mục tiêu nghiên cứu, em đã giả định sẽ có một cuộc khảo sát đã được tiến hành trên một mẫu ngẫu nhiên gồm $n=35$ sinh viên đang theo học tại Đại học Bách khoa Hà Nội. Dữ liệu thu thập bao gồm các thông tin định danh (Họ tên; Khoa, trường; Năm học) và biến định lượng chính của nghiên cứu: "Chi tiêu hàng tháng cho việc ăn uống" (đơn vị: triệu VNĐ).
+
+Toàn bộ dữ liệu thô được trình bày chi tiết tại Phụ lục B. Phân tích trong chương này sẽ tập trung vào biến \textbf{ChiTieu}.
+
+\subsection{Kết quả Thống kê mô tả}
+Các giá trị thống kê mô tả cơ bản của mẫu được tính toán bằng thư viện \texttt{Pandas} trong Python và được trình bày trong Bảng \ref{tab:thong_ke_mo_ta}.
+
+\begin{table}[h!]
+    \centering
+    \caption{Các giá trị thống kê mô tả của dữ liệu chi tiêu.}
+    \label{tab:thong_ke_mo_ta}
+    \renewcommand{\arraystretch}{1.2} 
+    \begin{tabular}{p{7cm} c} 
+        \toprule
+        \textbf{Đại lượng} & \textbf{Giá trị} \\
+        \midrule
+        Kích thước mẫu ($n$) & 35 \\
+        Trung bình mẫu ($\bar{x}$) & 2.411 triệu VNĐ \\
+        Độ lệch chuẩn mẫu hiệu chỉnh ($s$) & 0.482 triệu VNĐ \\
+        Trung vị (Median) & 2.400 triệu VNĐ \\
+        Tứ phân vị thứ nhất (Q1) & 2.050 triệu VNĐ \\
+        Tứ phân vị thứ ba (Q3) & 2.700 triệu VNĐ \\
+        Giá trị nhỏ nhất (Min) & 1.600 triệu VNĐ \\
+        Giá trị lớn nhất (Max) & 3.500 triệu VNĐ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Để trực quan hóa phân phối của dữ liệu chi tiêu, biểu đồ Histogram (Hình \ref{fig:histogram}) và biểu đồ Hộp (Hình \ref{fig:boxplot}) được sử dụng.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/histogram.png}
+    \caption{Histogram phân phối chi tiêu hàng tháng của sinh viên HUST.}
+    \label{fig:histogram}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/boxplot.png}
+    \caption{Boxplot biểu diễn phân phối chi tiêu.}
+    \label{fig:boxplot}
+\end{figure}
+
+\newpage
+
+\textit{Nhận xét sơ bộ:} Biểu đồ Histogram cho thấy dữ liệu phân phối tương đối đối xứng, có tâm phân phối tập trung quanh mốc 2.4 triệu đồng. Biểu đồ Boxplot cũng xác nhận điều này và không cho thấy sự xuất hiện của các giá trị ngoại lai rõ rệt.
+
+\section{Kết quả Ước lượng Khoảng tin cậy 95\%}
+\label{sec:KetQuaKTC}
+
+Sử dụng các giá trị thống kê mô tả đã tính ($\bar{x} = 2.411$, $s = 0.482$, $n = 35$) và công thức khoảng tin cậy cho trung bình tổng thể $\mu$ khi $\sigma$ chưa biết, ta có:
+
+Với bậc tự do $n - 1 = 34$, giá trị tới hạn $t_{\alpha/2, 34}$ cho độ tin cậy 95\% là $t_{0.025, 34} \approx 2.032$.
+
+Kết quả tính toán (em sử dụng \texttt{scipy.stats.t.interval}) cho ra \textbf{Khoảng tin cậy 95\% cho $\mu$} là:
+$$ \textbf{(2.246, 2.577)} $$
+
+\textit{Diễn giải:} Kết quả này có nghĩa là, với độ tin cậy 95\%, chúng ta có thể kết luận rằng chi tiêu trung bình \textbf{thực sự} (trung bình tổng thể $\mu$) cho việc ăn uống của toàn bộ sinh viên HUST nằm trong khoảng từ 2.246 triệu VNĐ đến 2.577 triệu VNĐ mỗi tháng.
+
+\section{Kết quả Kiểm định giả thuyết}
+\label{sec:KetQuaKiemDinh}
+
+Đây là phần phân tích để ra quyết định kinh doanh. Em thực hiện kiểm định t-test một mẫu, một phía (phía phải) với mốc hòa vốn $\mu_0 = 2.0$ triệu VNĐ. Lý giải thêm cho việc sử dụng kiểm định một phía bên phải là vì mục tiêu của em là xác định xem chi tiêu trung bình có \textbf{lớn hơn} mốc 2.0 triệu hay không, từ đó đánh giá tính khả thi của thị trường.
+
+\begin{itemize}
+    \item \textbf{Giả thuyết $H_0$:} $\mu \le 2.0$ 
+    \textit{(Chi tiêu trung bình thấp hơn hoặc bằng 2.0 triệu, thị trường không khả thi).}
+    
+    \item \textbf{Giả thuyết $H_1$:} $\mu > 2.0$ 
+    \textit{(Chi tiêu trung bình cao hơn 2.0 triệu, thị trường khả thi).}
+    
+    \item \textbf{Mức ý nghĩa:} $\alpha = 0.05$.
+\end{itemize}
+
+Kết quả tính toán từ mẫu được trình bày trong Bảng \ref{tab:ket_qua_kiem_dinh}.
+
+\begin{table}[h!]
+    \centering
+    \caption{Kết quả kiểm định t-test một mẫu.}
+    \label{tab:ket_qua_kiem_dinh}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{Đại lượng} & \textbf{Giá trị} \\
+        \midrule
+        Giá trị kiểm định ($H_0$) & $\mu_0 = 2.0$ \\
+        Thống kê kiểm định ($T_0$) & 5.051 \\
+        Bậc tự do & 34 \\
+        \textbf{P-value (một phía)} & \textbf{0.00000738} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Quyết định Thống kê}
+Em so sánh p-value với mức ý nghĩa $\alpha$:
+\begin{itemize}
+    \item P-value = $0.00000738$
+    \item Mức ý nghĩa $\alpha = 0.05$
+\end{itemize}
+Vì $p\text{-value} (0.00000738) << \alpha (0.05)$, em có bằng chứng thống kê cực kỳ mạnh mẽ để \textbf{bác bỏ giả thuyết $H_0$}.

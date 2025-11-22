@@ -1,0 +1,41 @@
+\chapter{GIỚI THIỆU}
+\label{chap:GioiThieu}
+
+\section{Bối cảnh và Vấn đề}
+\label{sec:BoiCanh}
+
+Với tư cách là sinh viên chuyên ngành Hệ thống thông tin quản lý tại Đại học Bách khoa Hà Nội (HUST), cùng tinh thần nhiệt huyết và mong muốn khởi nghiệp, em nhận thấy rằng thị trường dịch vụ ăn uống (F\&B) xung quanh khu vực Đại học Bách khoa Hà Nội (HUST) là một trong những thị trường tiềm năng. Với quy mô tuyển sinh hàng năm lên tới hơn 10.000 sinh viên, tổng số lượng sinh viên, giảng viên và nhân viên tại trường tạo ra một nhu cầu khổng lồ, ổn định và lặp lại hàng ngày về ăn uống.
+
+Tuy nhiên, thị trường này cũng tồn tại nhiều thách thức. Qua quan sát sơ bộ, em nhận thấy hai đặc điểm chính:
+\begin{enumerate}
+    \item \textbf{Mức độ cạnh tranh cao:} Có rất nhiều nhà cung cấp dịch vụ ăn uống, từ các quán cơm bình dân, xe đẩy đồ ăn vặt, đến các chuỗi cửa hàng tiện lợi.
+    \item \textbf{Tính nhạy cảm về giá:} Đối tượng khách hàng chủ yếu là sinh viên, một nhóm khách hàng có ngân sách hạn chế và rất nhạy cảm với các quyết định chi tiêu.
+\end{enumerate}
+
+Điều này dẫn đến một nhận định rằng, bất kỳ một mô hình F\&B mới nào muốn thành công và chiếm lĩnh thị phần trong khu vực này đều phải lấy \textbf{ưu thế về giá} làm yếu tố cạnh tranh bắt buộc.
+
+\section{Mục tiêu kinh doanh và Giả thuyết nghiên cứu}
+\label{sec:MucTieu}
+
+Với bối cảnh trên, em đang xem xét một ý tưởng khởi nghiệp: xây dựng một mô hình F\&B tinh gọn (ví dụ: một quầy bán đồ ăn mang đi) với khả năng tối ưu hóa chi phí vận hành để cung cấp các suất ăn chất lượng với mức giá cạnh tranh nhất.
+
+Tuy nhiên, để mô hình này có lãi, một bản kế hoạch kinh doanh sơ bộ (dựa trên chi phí thuê mặt bằng, nguyên vật liệu, nhân công) đã được vạch ra. Phân tích này chỉ ra rằng, dự án \textbf{chỉ khả thi về mặt tài chính nếu tổng chi tiêu trung bình hàng tháng cho ăn uống của sinh viên (trung bình tổng thể $\mu$) vượt qua một mốc hòa vốn tối thiểu.}
+
+\subsection{Xác định mốc hòa vốn ($\mu_0$)}
+Dựa trên các tính toán chi phí, mô hình F\&B giả định này chỉ có thể tồn tại và bắt đầu sinh lãi nếu quy mô thị trường đủ lớn. Em xác định mốc an toàn tối thiểu cho chi tiêu trung bình của một sinh viên là:
+$$ \mu_0 = 2.0 \text{ triệu VNĐ/tháng} $$
+
+Nếu mức chi tiêu trung bình thực tế của toàn bộ sinh viên HUST ($\mu$) thấp hơn hoặc bằng con số này, thị trường được coi là không đủ cung tiền để một mô hình mới (không kể các yếu tố khách quan trong kinh tế) có thể thành công.
+
+\subsection{Mục tiêu thống kê của Bài toán}
+Mục tiêu của bài giữa kì này là sử dụng các công cụ suy luận thống kê để kiểm định giả thuyết kinh doanh trên. Cụ thể, em sẽ tiến hành một cuộc khảo sát trên mẫu sinh viên HUST để kiểm định cặp giả thuyết sau:
+
+\begin{itemize}
+    \item \textbf{Giả thuyết $H_0: \mu \le 2.0$} \\
+    \textit{(Phát biểu: Chi tiêu trung bình thực tế thấp hơn hoặc bằng 2.0 triệu. Thị trường không khả thi, quyết định: Hủy bỏ dự án).}
+    
+    \item \textbf{Giả thuyết $H_1: \mu > 2.0$} \\
+    \textit{(Phát biểu: Chi tiêu trung bình thực tế lớn hơn 2.0 triệu. Thị trường khả thi, quyết định: Tiếp tục triển khai dự án).}
+\end{itemize}
+
+Bài toán này sẽ được kiểm định ở mức ý nghĩa $\alpha = 0.05$.

@@ -1,0 +1,79 @@
+\chapter{PHÂN TÍCH KẾT QUẢ VÀ RA QUYẾT ĐỊNH}
+\label{chap:ThaoLuan}
+
+Trong Chương 3, em đã tiến hành các phân tích thống kê trên bộ dữ liệu khảo sát. Kết quả tính toán cho thấy trung bình mẫu $\bar{x} = 2.411$ triệu VNĐ, khoảng tin cậy 95\% là (2.246, 2.577) và giá trị p-value cho kiểm định $H_1: \mu > 2.0$ là $0.00000738$.
+
+Chương này sẽ tập trung vào việc diễn giải các con số thống kê này trong bối cảnh thực tế của bài toán kinh doanh đã đặt ra: "Liệu thị trường F\&B tại HUST có đủ tiềm năng (với $\mu > 2.0$ triệu VNĐ) để triển khai một mô hình kinh doanh cạnh tranh về giá hay không?".
+
+\section{Diễn giải Kết quả thống kê}
+\label{sec:DienGiaiKetQua}
+Kết quả tính toán không chỉ là những con số, chúng cung cấp những bằng chứng cụ thể để trả lời cho câu hỏi nghiên cứu.
+
+\subsection{Phân tích Ý nghĩa của Kiểm định Giả thuyết}
+Kết quả quan trọng nhất của phân tích là từ phép kiểm định t-test một phía:
+
+\textbf{Giá trị p-value = 0.00000738}
+
+Theo định nghĩa, p-value là xác suất quan sát được một giá trị trung bình mẫu "lạ" như $\bar{x} = 2.411$ (hoặc lạ hơn), \textit{nếu giả sử rằng giả thuyết $H_0$ là đúng} (tức là $\mu$ thực sự chỉ là 2.0 triệu).
+
+$0.00000738$ là một con số gần như bằng không. Điều này có nghĩa là: nếu chi tiêu trung bình thực sự của sinh viên HUST chỉ là 2.0 triệu, thì việc em khảo sát 35 sinh viên và ra được con số trung bình lên tới 2.411 triệu là một sự kiện "cực kỳ hiếm", gần như không thể xảy ra do ngẫu nhiên.
+
+Vì $p\text{-value} (0.00000738) << \alpha (0.05)$, em có một bằng chứng thống kê rất mạnh mẽ để \textbf{bác bỏ giả thuyết $H_0$}. 
+
+Nói cách khác, em có thể kết luận với độ tin cậy cao rằng nhận định "chi tiêu trung bình của sinh viên HUST lớn hơn 2.0 triệu VNĐ" là đúng.
+
+\subsection{Phân tích Ý nghĩa của Khoảng tin cậy 95\%}
+Kiểm định giả thuyết chỉ trả lời "Có" hoặc "Không" (lớn hơn 2.0 hay không). Khoảng tin cậy sẽ cho chúng ta biết "Lớn hơn bao nhiêu?".
+
+Kết quả tính toán cho ra \textbf{Khoảng tin cậy 95\% cho $\mu$ là (2.246, 2.577) triệu VNĐ.}
+
+Việc diễn giải khoảng này cung cấp hai thông tin giá trị cho quyết định kinh doanh:
+\begin{enumerate}
+    \item \textbf{Xác nhận kết quả kiểm định:} Toàn bộ khoảng tin cậy (từ 2.246 đến 2.577) đều nằm \textbf{hoàn toàn phía trên} mốc hòa vốn 2.0 triệu. Điều này củng cố thêm cho quyết định bác bỏ $H_0$.
+    \item \textbf{Cung cấp biên an toàn:} Đây là giá trị quan trọng nhất. Phân tích chỉ ra rằng, ngay cả ở kịch bản "xấu nhất" (cận dưới của khoảng tin cậy), mức chi tiêu trung bình thực tế ($\mu$) cũng đã là 2.246 triệu VNĐ. Con số này cao hơn mốc hòa vốn 2.0 triệu của chúng ta một khoảng 0.246 triệu (tương đương 12.3\%). 
+\end{enumerate}
+Biên an toàn 12.3\% này là một tín hiệu tích cực, cho thấy dự án có khả năng chống chịu được các biến động nhỏ về chi phí hoặc sai số trong dự báo ban đầu.
+
+\section{Quyết định Kinh doanh: Nên kinh doanh}
+\label{sec:QuyetDinhKinhDoanh}
+
+Dựa trên các diễn giải thống kê ở trên, em đã có thể đưa ra khuyến nghị trực tiếp cho bài toán kinh doanh đã đặt ra ở Chương 1:
+
+\textbf{Quyết định: Nên kinh doanh.}
+
+Lý do là vì cả hai phương pháp suy luận đều cho kết quả đồng thuận:
+\begin{itemize}
+    \item \textbf{Kiểm định t-test} khẳng định (với p-value $\approx 0$) rằng thị trường có mức chi tiêu trung bình lớn hơn 2.0 triệu VNĐ.
+    \item \textbf{Khoảng tin cậy 95\%} chỉ ra rằng mức chi tiêu này không chỉ lớn hơn, mà còn lớn hơn một khoảng an toàn (ít nhất là 12.3\%).
+\end{itemize}
+
+Mặc dù bối cảnh thị trường sinh viên HUST rất nhạy cảm về giá, nhưng dữ liệu cho thấy tổng ngân sách hàng tháng mà sinh viên dành cho ăn uống là đủ lớn. Điều này cho phép một mô hình F\&B mới, dù cạnh tranh về giá (ví dụ: bán suất ăn 25 nghìn đồng cho tới 30 nghìn đồng), vẫn có đủ "dung lượng thị trường" để tồn tại.
+
+\section{Hạn chế của Nghiên cứu và Hướng phát triển}
+\label{sec:HanChe}
+Việc ra quyết định này dựa trên một nghiên cứu thống kê và cần được xem xét cùng với các hạn chế của nó.
+\begin{itemize}
+    \item \textbf{Tính đại diện của mẫu:} Mẫu $n=35$ là tương đối nhỏ so với quy mô khoảng hơn 10.000 sinh viên nhập học hàng năm. Hơn nữa, phương pháp khảo sát khả thi (Ví dụ như em định gửi form khảo sát) có thể dẫn đến "thiên kiến chọn mẫu", khi chỉ những người năng động hoặc có thói quen chi tiêu nhất định mới trả lời tử tế.
+    \item \textbf{Dữ liệu tự khai báo (Self-reported data):} Con số sinh viên cung cấp là "ước tính". Họ có thể không nhớ chính xác hoặc cố tình báo cáo sai lệch.
+    \item \textbf{Giả định của mô hình:} Phép kiểm định t-test yêu cầu dữ liệu xấp xỉ chuẩn hoặc cỡ mẫu đủ lớn. Mặc dù $n=35$ được xem là đủ để áp dụng Định lý Giới hạn Trung tâm (CLT), một cỡ mẫu lớn hơn sẽ cho kết quả đáng tin cậy hơn.
+    \item \textbf{Yếu tố bên ngoài không được xem xét:} Nghiên cứu chỉ tập trung vào chi tiêu trung bình mà không xem xét các yếu tố khác như xu hướng tiêu dùng, sự cạnh tranh từ các mô hình F\&B hiện có, hoặc các yếu tố kinh tế vĩ mô có thể ảnh hưởng đến chi tiêu của sinh viên. Ngoài ra, nghiên cứu chưa phân tích sự khác biệt chi tiêu giữa các nhóm sinh viên (theo Khoa, năm học, giới tính,...), điều này có thể cung cấp những hiểu biết sâu sắc hơn về thị trường mục tiêu nhưng không được đề cập đến trong khuôn khổ bài báo cáo giữa kì môn Suy luận thống kê.
+\end{itemize}
+
+\textbf{Hướng phát triển:} Trước khi đầu tư một số vốn lớn, em dự tính sẽ làm nghiên cứu này thực tế nhưng cần được mở rộng với một mẫu lớn hơn (ví dụ $n > 200$) và sử dụng phương pháp \textbf{lấy mẫu phân tầng} (stratified sampling) --- đảm bảo thu thập đủ dữ liệu từ các Khoa/Trường khác nhau (Toán-Tin, CNTT, Kinh tế,...) và các năm học khác nhau (Năm 1 đến Năm 4) để có một bức tranh toàn cảnh chính xác nhất về thị trường.
+
+\section{Kết luận chung}
+\label{sec:KetLuanChung}
+
+Báo cáo này được thực hiện nhằm giải quyết một bài toán kinh doanh thực tế: đánh giá tính khả thi của một mô hình F\&B cạnh tranh về giá tại thị trường sinh viên HUST, dựa trên mốc chi tiêu trung bình tối thiểu là $\mu_0 = 2.0$ triệu VNĐ/tháng.
+
+Để trả lời câu hỏi này, một cuộc khảo sát trên $n=35$ sinh viên đã được tiến hành. Dữ liệu thu thập được đã qua các bước xử lý, thống kê mô tả và trực quan hóa để đảm bảo tính hợp lệ.
+
+Sử dụng các phương pháp suy luận thống kê cốt lõi đã trình bày trong Chương 2, em đã thực hiện hai phép phân tích chính:
+\begin{enumerate}
+    \item \textbf{Ước lượng Khoảng tin cậy 95\%} cho chi tiêu trung bình, kết quả thu được là \textbf{(2.246, 2.577) triệu VNĐ}.
+    \item \textbf{Kiểm định giả thuyết} $H_1: \mu > 2.0$, cho kết quả \textbf{p-value $0.00000738$}.
+\end{enumerate}
+
+Cả hai kết quả phân tích đều đồng thuận. Giá trị p-value (nhỏ hơn $\alpha=0.05$) đã cung cấp bằng chứng mạnh mẽ để \textbf{bác bỏ giả thuyết $H_0$}. Đồng thời, khoảng tin cậy 95\% cũng xác nhận rằng mức chi tiêu trung bình thực tế không chỉ lớn hơn 2.0 triệu mà còn vượt trên một khoảng an toàn đáng kể (ít nhất là 12.3\%).
+
+Kết luận cuối cùng của nghiên cứu là: \textbf{Thị trường khả thi}. Quyết định \textbf{Tiếp tục triển khai} được khuyến nghị cho dự án F\&B.

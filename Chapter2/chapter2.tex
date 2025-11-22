@@ -1,0 +1,79 @@
+\chapter{CƠ SỞ LÝ THUYẾT}
+\label{chap:CoSoLyThuyet}
+
+\section{Giới thiệu}
+Chương này trình bày cơ sở lý thuyết về suy luận thống kê được sử dụng để phân tích dữ liệu trong bài báo cáo. Các phương pháp này là nền tảng để từ dữ liệu mẫu, em có thể đưa ra các kết luận về tổng thể và ra quyết định kinh doanh. 
+
+Các kỹ thuật chính được sử dụng bao gồm: (1) Thống kê mô tả và trực quan hóa dữ liệu, (2) Ước lượng khoảng tin cậy cho trung bình tổng thể, và (3) Kiểm định giả thuyết thống kê cho trung bình tổng thể.
+
+\section{Thống kê mô tả}
+\label{sec:ThongKeMoTa}
+Thống kê mô tả là bộ các phương pháp nhằm mục đích tóm tắt và trình bày các đặc điểm chính của một tập dữ liệu. Trước khi thực hiện bất kỳ suy luận nào, việc hiểu rõ dữ liệu mẫu là bước bắt buộc.
+
+\subsection{Các đại lượng đo lường}
+\begin{itemize}
+    \item \textbf{Đo lường xu hướng trung tâm:} Cho biết giá trị "điển hình" của dữ liệu. Các đại lượng phổ biến là \textbf{Trung bình mẫu ($\bar{x}$)} và \textbf{Trung vị (Med)}.
+    \item \textbf{Đo lường độ phân tán:} Cho biết mức độ lan rộng hoặc biến động của dữ liệu. Đại lượng quan trọng nhất là \textbf{Độ lệch chuẩn mẫu hiệu chỉnh ($s$)}.
+\end{itemize}
+
+\subsection{Trực quan hóa dữ liệu}
+Các biểu đồ trực quan giúp phát hiện các xu hướng, quy luật phân phối và các giá trị bất thường.
+\begin{itemize}
+    \item \textbf{Biểu đồ Histogram:} Giúp nhận diện hình dạng phân phối của dữ liệu (ví dụ: chuẩn, lệch trái, lệch phải).
+    \item \textbf{Biểu đồ Hộp (Boxplot):} Hiệu quả trong việc tóm tắt 5 vị trí (Min, Q1, Med, Q3, Max) và phát hiện các giá trị ngoại lai.
+\end{itemize}
+
+\section{Ước lượng Khoảng tin cậy cho Trung bình}
+\label{sec:KhoangTinCay}
+Trong thực tế, ta không thể biết giá trị chính xác của trung bình tổng thể $\mu$ (ví dụ: chi tiêu trung bình \textit{thực sự} của toàn bộ sinh viên HUST). Thay vào đó, ta dùng dữ liệu mẫu để xây dựng một "khoảng" mà ta tin rằng nó chứa $\mu$.
+
+\subsection{Nguyên lý và Ý nghĩa}
+Một \textbf{khoảng tin cậy} với độ tin cậy $1-\alpha$ là một khoảng ngẫu nhiên $(\hat{\theta}_L, \hat{\theta}_U)$ được xây dựng từ mẫu. Trước khi lấy mẫu, xác suất để khoảng này "bắt" được tham số $\theta$ (là $\mu$) đúng bằng $1-\alpha$.
+
+\textbf{Diễn giải:} Khi ta nói "Khoảng tin cậy 95\%", điều đó có nghĩa là nếu ta lặp lại quy trình lấy mẫu và xây dựng khoảng này 100 lần, thì trung bình sẽ có 95 khoảng "bắt" trúng giá trị $\mu$ thật. Đó là sự tin cậy vào \textbf{phương pháp}, chứ không phải xác suất cho một khoảng cụ thể. \cite{slide_chuong2_uocluong}
+
+\subsection{Công thức KTC cho trung bình ($\sigma$ chưa biết)}
+Trong báo cáo giữa kì này, em không biết độ lệch chuẩn của tổng thể ($\sigma$). Do đó, em sử dụng độ lệch chuẩn mẫu hiệu chỉnh ($s$) và \textbf{phân phối t-Student}.
+
+Công thức khoảng tin cậy $1-\alpha$ cho trung bình tổng thể $\mu$ là:
+$$ \bar{x} - t_{\alpha/2, n-1} \frac{s}{\sqrt{n}} \le \mu \le \bar{x} + t_{\alpha/2, n-1} \frac{s}{\sqrt{n}} $$ 
+Hoặc viết gọn là:
+$$ \bar{x} \pm t_{\alpha/2, n-1} \frac{s}{\sqrt{n}} $$
+
+\section{Kiểm định giả thuyết}
+\label{sec:KiemDinhGiaThuyet}
+Kiểm định giả thuyết là một quy trình thống kê chuẩn mực dùng để ra quyết định giữa hai giả thuyết đối lập nhau (chấp nhận hay bác bỏ một nhận định) dựa trên bằng chứng từ dữ liệu mẫu.
+
+\subsection{Nguyên lý chung}
+Quy trình luôn bắt đầu với việc phát biểu hai giả thuyết:
+\begin{itemize}
+    \item \textbf{Giả thuyết 0 ($H_0$):} Là giả thuyết ban đầu. Đây là giả thuyết ta sẽ mặc định là đúng cho đến khi có bằng chứng đủ mạnh để bác bỏ nó.
+    \item \textbf{Đối thuyết ($H_1$):} Là điều ta muốn chứng minh (ví dụ: có sự thay đổi, có sự khác biệt, hoặc giá trị lớn hơn/nhỏ hơn một mốc nào đó).
+\end{itemize}
+\textbf{Mức ý nghĩa ($\alpha$):} Là xác suất tối đa mà ta chấp nhận mắc \textbf{Sai lầm loại I} (bác bỏ $H_0$ trong khi $H_0$ đúng). Trong kinh doanh và nghiên cứu, $\alpha = 0.05$ (5\%) thường được sử dụng làm ngưỡng tiêu chuẩn.
+
+\subsection{Giá trị p-value (p-value)}
+\textbf{p-value} là khái niệm cốt lõi để ra quyết định. Nó là xác suất, \textit{giả sử $H_0$ là đúng}, ta quan sát được một kết quả mẫu "lạ" bằng hoặc "lạ" hơn kết quả mà ta đã thu thập được.
+\begin{itemize}
+    \item $p\text{-value}$ nhỏ (ví dụ: $p < 0.05$): Bằng chứng mẫu rất "lạ", khó có thể xảy ra nếu $H_0$ đúng. Ta có bằng chứng mạnh để \textbf{bác bỏ $H_0$} và chấp nhận $H_1$.
+    \item $p\text{-value}$ lớn (ví dụ: $p \ge 0.05$): Bằng chứng mẫu là "bình thường", hoàn toàn có thể xảy ra nếu $H_0$ đúng. Ta \textbf{không đủ bằng chứng để bác bỏ $H_0$}. \cite{slide_chuong3_kiemdinh}
+\end{itemize}
+
+\subsection{Kiểm định t một mẫu}
+Đây là kỹ thuật được sử dụng trong báo cáo giữa kì này để kiểm tra xem trung bình tổng thể $\mu$ có khác biệt với một giá trị cụ thể $\mu_0$ hay không (trong trường hợp của em chọn là $\mu_0 = 2.0$ triệu).
+
+Thống kê kiểm định được sử dụng là:
+$$ T_0 = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} $$
+Giá trị $T_0$ này tuân theo phân phối t-Student với $n-1$ bậc tự do. \cite{slide_chuong3_kiemdinh}
+
+\textbf{Quy trình ra quyết định (cho báo cáo này):}
+Vì mục tiêu của em là kiểm tra xem chi tiêu trung bình có \textbf{lớn hơn} 2.0 triệu hay không, em sử dụng phép kiểm định một phía bên phải:
+\begin{itemize}
+    \item $H_0: \mu \le 2.0$ (Thị trường không khả thi)
+    \item $H_1: \mu > 2.0$ (Thị trường khả thi)
+\end{itemize}
+Ta sẽ tính giá trị $p\text{-value}$ tương ứng với thống kê $T_0$ (là diện tích bên phải của $T_0$).
+\begin{itemize}
+    \item \textbf{Nếu $p\text{-value} < 0.05$ (mức ý nghĩa $\alpha$):} Bác bỏ $H_0$. Kết luận rằng có bằng chứng thống kê cho thấy chi tiêu trung bình thực sự lớn hơn 2.0 triệu.
+    \item \textbf{Nếu $p\text{-value} \ge 0.05$:} Không đủ bằng chứng bác bỏ $H_0$. Không thể kết luận rằng thị trường khả thi.
+\end{itemize}

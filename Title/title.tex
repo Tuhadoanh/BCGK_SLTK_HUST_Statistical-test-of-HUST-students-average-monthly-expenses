@@ -1,0 +1,51 @@
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+\definecolor{maincolor}{named}{black}
+    \draw[draw=maincolor,line width=4pt]
+    ($([xshift=-1.5cm,yshift=-2cm]current page.north east)$) coordinate (A) --
+    ($([xshift=2.5cm,yshift=-2cm]current page.north west)$) coordinate (B) --
+    ($([xshift=2.5cm,yshift=2cm]current page.south west)$) coordinate (C) --
+    ($([xshift=-1.5cm,yshift=2cm]current page.south east)$) coordinate (D) -- cycle;
+     \draw ([yshift=0.5cm,xshift=-0.5cm]A)-- ([yshift=0.5cm,xshift=0.5cm]B)--
+     ([yshift=-0.5cm,xshift=0.5cm]B) --([yshift=-0.5cm,xshift=-0.5cm]B)--([yshift=0.5cm,xshift=-0.5cm]C)--([yshift=0.5cm,xshift=0.5cm]C)--([yshift=-0.5cm,xshift=0.5cm]C)-- ([yshift=-0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=0.5cm]D)--([yshift=-0.5cm,xshift=0.5cm]A)--([yshift=-0.5cm,xshift=-0.5cm]A)--([yshift=0.5cm,xshift=-0.5cm]A);
+     
+     \draw ([yshift=-0.3cm,xshift=0.3cm]A)-- ([yshift=-0.3cm,xshift=-0.3cm]B)--
+     ([yshift=0.3cm,xshift=-0.3cm]B) --([yshift=0.3cm,xshift=0.3cm]B)--([yshift=-0.3cm,xshift=0.3cm]C)--([yshift=-0.3cm,xshift=-0.3cm]C)--([yshift=0.3cm,xshift=-0.3cm]C)-- ([yshift=0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=-0.3cm]D)--([yshift=0.3cm,xshift=-0.3cm]A)--([yshift=0.3cm,xshift=0.3cm]A)--([yshift=-0.3cm,xshift=0.3cm]A);
+   \end{tikzpicture}
+\begin{center}
+\vspace{-6pt}
+\textbf{\fontsize{14pt}{0pt}\selectfont ĐẠI HỌC BÁCH KHOA HÀ NỘI}\\
+            
+            \vspace{0.25cm}
+            
+            \textbf{\fontsize{14pt}{0pt}\selectfont KHOA TOÁN-TIN  }
+            
+            \vspace{1.5cm}
+    \includegraphics[scale=0.5]{logo.png}\\
+    \vspace{30pt}
+    \textbf{\Huge BÀI GIỮA KÌ\\
+    SUY LUẬN THỐNG KÊ}\\
+
+    \vspace{1.5cm}
+    \begin{table}[H]
+        \centering
+    \begin{tabular}{l l l}
+        Giảng viên hướng dẫn: & {\bf TS. Nguyễn Thị Thu Thủy}
+        \vspace{6pt} \\
+        Mã học phần: & {\bf MI3031} \vspace{6pt}\\
+        Mã lớp học: & {\bf163641} \vspace{6pt}\\
+        Sinh viên thực hiện:
+        &{\bf Hà Đỗ Anh Tú}
+        \vspace{6pt}\\
+        Mã số sinh viên:
+        &{\bf 20237491} 
+    \end{tabular}
+    \end{table}
+\end{center}
+
+\vspace{1.5cm}
+\begin{center}
+   \textbf{\fontsize{11pt}{0pt}\selectfont Hà Nội - 2025}\\
+\end{center}
+\end{titlepage}
