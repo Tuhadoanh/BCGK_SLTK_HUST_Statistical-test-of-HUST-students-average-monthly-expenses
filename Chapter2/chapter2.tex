@@ -69,10 +69,12 @@ Giá trị $T_0$ này tuân theo phân phối t-Student với $n-1$ bậc tự d
 \textbf{Quy trình ra quyết định (cho báo cáo này):}
 Vì mục tiêu của em là kiểm tra xem chi tiêu trung bình có \textbf{lớn hơn} 2.0 triệu hay không, em sử dụng phép kiểm định một phía bên phải:
 \begin{itemize}
-    \item $H_0: \mu \le 2.0$ (Thị trường không khả thi)
+    \item $H_0: \mu = 2.0$ (Thị trường không khả thi)
     \item $H_1: \mu > 2.0$ (Thị trường khả thi)
 \end{itemize}
 Ta sẽ tính giá trị $p\text{-value}$ tương ứng với thống kê $T_0$ (là diện tích bên phải của $T_0$).
+
+Một phần lý thuyết quan trọng nữa cho việc kiểm định và ra quyết định, là mặc dù giả thuyết $H_0$ được nêu bằng dấu "=", nhưng nó được hiểu là bao gồm bất kỳ giá trị nào của $\mu$ không được chỉ định bởi đối thuyết [\cite{slide_chuong3_kiemdinh}]. Do đó, khi ta bác bỏ $H_0$, ta không chỉ bác bỏ giá trị cụ thể 2.0 triệu, mà còn bác bỏ toàn bộ tập hợp các giá trị $\mu$ mà $H_0$ bao hàm.
 \begin{itemize}
     \item \textbf{Nếu $p\text{-value} < 0.05$ (mức ý nghĩa $\alpha$):} Bác bỏ $H_0$. Kết luận rằng có bằng chứng thống kê cho thấy chi tiêu trung bình thực sự lớn hơn 2.0 triệu.
     \item \textbf{Nếu $p\text{-value} \ge 0.05$:} Không đủ bằng chứng bác bỏ $H_0$. Không thể kết luận rằng thị trường khả thi.
