@@ -98,9 +98,14 @@ Kết quả tính toán từ mẫu được trình bày trong Bảng \ref{tab:ke
 \end{table}
 
 \subsection{Quyết định Thống kê}
-Em so sánh p-value với mức ý nghĩa $\alpha$:
-\begin{itemize}
-    \item P-value = $0.00000738$
-    \item Mức ý nghĩa $\alpha = 0.05$
-\end{itemize}
-Vì $p\text{-value} (0.00000738) << \alpha (0.05)$, em có bằng chứng thống kê cực kỳ mạnh mẽ để \textbf{bác bỏ giả thuyết $H_0$}.
+Ta có thể đưa ra kết luận dựa trên hai phương pháp tương đương:
+
+\textbf{Phương pháp 1: Tiếp cận theo phương pháp cổ điển} \\
+Với mức ý nghĩa $\alpha=0.05$ và bậc tự do $34$, giá trị tới hạn cho kiểm định phía phải là $t_{\alpha, 34} \approx 1.691$.
+Miền bác bỏ là:
+$$ W_\alpha = (1.691; +\infty) $$
+Quan sát thấy giá trị thống kê kiểm định $T_0 = 5.051$ rơi vào miền bác bỏ ($5.051 > 1.691$). Do đó, ta \textbf{bác bỏ $H_0$}.
+
+\textbf{Phương pháp 2: Tiếp cận theo p-value} \\
+Giá trị p-value tính được là $0.00000738$.
+Vì $\text{p-value} < \alpha$ ($0.00000738 < 0.05$), ta có bằng chứng thống kê rất mạnh để \textbf{bác bỏ $H_0$}.

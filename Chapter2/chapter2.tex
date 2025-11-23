@@ -1,10 +1,15 @@
+% !TEX root = ../main.tex
+% =======================================================================
+% NỘI DUNG CHƯƠNG 2: CƠ SỞ LÝ THUYẾT
+% =======================================================================
+
 \chapter{CƠ SỞ LÝ THUYẾT}
 \label{chap:CoSoLyThuyet}
 
 \section{Giới thiệu}
-Chương này trình bày cơ sở lý thuyết về suy luận thống kê được sử dụng để phân tích dữ liệu trong bài báo cáo. Các phương pháp này là nền tảng để từ dữ liệu mẫu, em có thể đưa ra các kết luận về tổng thể và ra quyết định kinh doanh. 
+Chương này trình bày cơ sở lý thuyết về suy luận thống kê được sử dụng để phân tích dữ liệu. Các phương pháp này là nền tảng để từ dữ liệu mẫu, em có thể đưa ra các kết luận về tổng thể và ra quyết định kinh doanh. 
 
-Các kỹ thuật chính được sử dụng bao gồm: (1) Thống kê mô tả và trực quan hóa dữ liệu, (2) Ước lượng khoảng tin cậy cho trung bình tổng thể, và (3) Kiểm định giả thuyết thống kê cho trung bình tổng thể.
+Các kỹ thuật chính được sử dụng bao gồm: Thống kê mô tả, Ước lượng khoảng tin cậy và Kiểm định giả thuyết thống kê.
 
 \section{Thống kê mô tả}
 \label{sec:ThongKeMoTa}
@@ -59,23 +64,74 @@ Quy trình luôn bắt đầu với việc phát biểu hai giả thuyết:
     \item $p\text{-value}$ lớn (ví dụ: $p \ge 0.05$): Bằng chứng mẫu là "bình thường", hoàn toàn có thể xảy ra nếu $H_0$ đúng. Ta \textbf{không đủ bằng chứng để bác bỏ $H_0$}. \cite{slide_chuong3_kiemdinh}
 \end{itemize}
 
-\subsection{Kiểm định t một mẫu}
-Đây là kỹ thuật được sử dụng trong báo cáo giữa kì này để kiểm tra xem trung bình tổng thể $\mu$ có khác biệt với một giá trị cụ thể $\mu_0$ hay không (trong trường hợp của em chọn là $\mu_0 = 2.0$ triệu).
+\section{Lựa chọn Tiêu chuẩn Kiểm định}
+\label{sec:LuaChonKiemDinh}
+
+Đây là bước quan trọng nhất trong việc áp dụng lý thuyết vào thực tế. Dựa trên các kiến thức đã học (Chương 3), em có bảng tổng hợp các trường hợp kiểm định giả thuyết cho kỳ vọng $\mu$ như sau:
+
+\begin{table}[h!]
+    \centering
+    \caption{Các trường hợp kiểm định giả thuyết về kỳ vọng $\mu$ (với $H_0: \mu = \mu_0$).}
+    \label{tab:cac_truong_hop_kiem_dinh}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|L{5cm}|C{4cm}|C{4cm}|}
+        \hline
+        \textbf{Điều kiện thông tin} & \textbf{Thống kê kiểm định} & \textbf{Phân phối (khi $H_0$ đúng)} \\
+        \hline
+        \textbf{1. Đã biết} phương sai $\sigma^2$ & $Z = \dfrac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}$ & Chuẩn tắc $N(0, 1)$ \\
+        \hline
+        \textbf{2. Chưa biết} $\sigma^2$, mẫu lớn ($n \ge 40$) & $Z \approx \dfrac{\bar{X} - \mu_0}{S / \sqrt{n}}$ & Xấp xỉ $N(0, 1)$ \\
+        \hline
+        \textbf{3. Chưa biết} $\sigma^2$, mẫu chưa đủ lớn ($n < 40$) & $T = \dfrac{\bar{X} - \mu_0}{S / \sqrt{n}}$ & Student $t(n-1)$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\textbf{Áp dụng vào đề tài:}
+Trong báo cáo này, em thực hiện khảo sát thực tế nên \textbf{chưa biết phương sai tổng thể $\sigma^2$}. Mặc dù kích thước mẫu $n=35$ có thể coi là đủ lớn để dùng xấp xỉ Z (Trường hợp 2), nhưng theo lý thuyết, trong thực tế, để đảm bảo độ chính xác và an toàn cao nhất về mặt thống kê, báo cáo lựa chọn sử dụng \textbf{Trường hợp 3 (Kiểm định t một mẫu)}. \cite{slide_chuong3_kiemdinh}
 
 Thống kê kiểm định được sử dụng là:
 $$ T_0 = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} $$
-Giá trị $T_0$ này tuân theo phân phối t-Student với $n-1$ bậc tự do. \cite{slide_chuong3_kiemdinh}
+Giá trị $T_0$ này tuân theo phân phối t-Student với $n-1$ bậc tự do.
 
-\textbf{Quy trình ra quyết định (cho báo cáo này):}
-Vì mục tiêu của em là kiểm tra xem chi tiêu trung bình có \textbf{lớn hơn} 2.0 triệu hay không, em sử dụng phép kiểm định một phía bên phải:
+\textbf{Quy trình ra quyết định:}
+Vì mục tiêu là kiểm tra xem chi tiêu trung bình có \textbf{lớn hơn} 2.0 triệu hay không, em sử dụng phép kiểm định một phía bên phải:
 \begin{itemize}
     \item $H_0: \mu = 2.0$ (Thị trường không khả thi)
     \item $H_1: \mu > 2.0$ (Thị trường khả thi)
 \end{itemize}
-Ta sẽ tính giá trị $p\text{-value}$ tương ứng với thống kê $T_0$ (là diện tích bên phải của $T_0$).
 
-Một phần lý thuyết quan trọng nữa cho việc kiểm định và ra quyết định, là mặc dù giả thuyết $H_0$ được nêu bằng dấu "=", nhưng nó được hiểu là bao gồm bất kỳ giá trị nào của $\mu$ không được chỉ định bởi đối thuyết [\cite{slide_chuong3_kiemdinh}]. Do đó, khi ta bác bỏ $H_0$, ta không chỉ bác bỏ giá trị cụ thể 2.0 triệu, mà còn bác bỏ toàn bộ tập hợp các giá trị $\mu$ mà $H_0$ bao hàm.
+Một phần lý thuyết quan trọng nữa cho việc kiểm định và ra quyết định, là mặc dù giả thuyết $H_0$ được nêu bằng dấu "=", nhưng nó được hiểu là bao gồm bất kỳ giá trị nào của $\mu$ không được chỉ định bởi đối thuyết [\cite{slide_chuong3_kiemdinh}]. Do đó, khi ta bác bỏ $H_0$, ta không chỉ bác bỏ giá trị cụ thể 2.0 triệu, mà còn bác bỏ toàn bộ tập hợp các giá trị $\mu$ mà $H_0$ bao hàm ($\mu \le 2.0$).
+
+\subsection{Quy tắc ra quyết định}
+Để đảm bảo tính chặt chẽ và khách quan, báo cáo sử dụng song song hai phương pháp tiếp cận tương đương nhau được trình bày trong giáo trình \cite{slide_chuong3_kiemdinh}:
+
+\subsubsection{Phương pháp 1: Tiếp cận cổ điển (Miền bác bỏ)}
+Phương pháp này dựa trên việc xác định trước một miền giá trị được gọi là miền bác bỏ $W_\alpha$ dựa trên mức ý nghĩa $\alpha$.
+
 \begin{itemize}
-    \item \textbf{Nếu $p\text{-value} < 0.05$ (mức ý nghĩa $\alpha$):} Bác bỏ $H_0$. Kết luận rằng có bằng chứng thống kê cho thấy chi tiêu trung bình thực sự lớn hơn 2.0 triệu.
-    \item \textbf{Nếu $p\text{-value} \ge 0.05$:} Không đủ bằng chứng bác bỏ $H_0$. Không thể kết luận rằng thị trường khả thi.
+    \item \textbf{Xác định giá trị tới hạn:} Với mức ý nghĩa $\alpha$ và bậc tự do $df = n-1$, ta tìm giá trị tới hạn $t_{\alpha, n-1}$ từ bảng phân phối Student sao cho $P(T > t_{\alpha, n-1}) = \alpha$.
+    \item \textbf{Xác định miền bác bỏ:} Đối với bài toán kiểm định phía phải ($H_1: \mu > \mu_0$), miền bác bỏ nằm ở đuôi phải của phân phối:
+    $$ W_\alpha = (t_{\alpha, n-1}; +\infty) $$
+    \item \textbf{Quy tắc quyết định:} 
+    \begin{itemize}
+        \item Nếu $t_0 \in W_\alpha$ (tức là $t_0 > t_{\alpha, n-1}$): Bác bỏ $H_0$.
+        \item Nếu $t_0 \notin W_\alpha$: Chưa đủ cơ sở bác bỏ $H_0$.
+    \end{itemize}
 \end{itemize}
+
+\subsubsection{Phương pháp 2: Tiếp cận p-giá trị (p-value)}
+Phương pháp này đánh giá sức mạnh của bằng chứng mẫu bằng cách tính xác suất.
+
+\begin{itemize}
+    \item \textbf{Định nghĩa:} P-giá trị là xác suất để thống kê $T$ nhận giá trị lớn hơn hoặc bằng giá trị quan sát $t_0$, với giả định $H_0$ đúng.
+    \item \textbf{Công thức xác định:} Đối với kiểm định phía phải ($H_1: \mu > \mu_0$):
+    $$ \text{P-value} = P(T > t_0) $$
+    trong đó $T$ là biến ngẫu nhiên tuân theo phân phối Student với $n-1$ bậc tự do.
+    \item \textbf{Quy tắc quyết định:}
+    \begin{itemize}
+        \item Nếu $\text{P-value} < \alpha$: Bác bỏ $H_0$ (Kết quả có ý nghĩa thống kê).
+        \item Nếu $\text{P-value} \ge \alpha$: Chưa đủ cơ sở bác bỏ $H_0$.
+    \end{itemize}
+\end{itemize}
+Trong báo cáo này, với mục tiêu kiểm định $H_1: \mu > 2.0$ (kiểm định phía phải), miền bác bỏ sẽ là $W_\alpha = (t_{\alpha, n-1}; +\infty)$.
